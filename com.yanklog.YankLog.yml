@@ -1,6 +1,6 @@
 app-id: com.yanklog.YankLog
 runtime: org.gnome.Platform
-runtime-version: "51"
+runtime-version: '51'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
@@ -21,7 +21,8 @@ modules:
       env:
         CARGO_HOME: /run/build/yanklog/cargo
     build-commands:
-      - cargo build --release --offline --locked -p yanklog-linux-native --features flatpak --bin yanklog
+      - cargo build --release --offline --locked -p yanklog-linux-native --features
+        flatpak --bin yanklog
       - install -Dm755 target/release/yanklog /app/bin/yanklog
       - install -Dm644 packaging/flatpak/com.yanklog.YankLog.desktop /app/share/applications/com.yanklog.YankLog.desktop
       - install -Dm644 assets/logo.svg /app/share/icons/hicolor/scalable/apps/com.yanklog.YankLog.svg
@@ -30,8 +31,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/act1labs/yanklog-linux.git
-        tag: v2.5.1
-        commit: a2cb9660b6e77915149b1f6acc90879b5e0917ed
+        tag: v2.5.2
+        commit: e5cbd36619e33dab0c2d36b67bed87c79e4234f8
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
